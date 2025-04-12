@@ -25,20 +25,19 @@ while (empezar)
         Console.WriteLine($"> {JugadorN}, elige una posición (1-9)");
         string? valor = Console.ReadLine();
 
-        if (int.TryParse(valor, out int numero))
-        {
-            if (numero <= 0 || numero >= 10)
-            {
-                Console.WriteLine("----- Error : Ingrese un valor valido entre 1-9 -----\n");
-                continue;
-            }
-
-        }
-        else
+        if (!int.TryParse(valor, out int numero))
         {
             Console.WriteLine("----- Error :Ingrese un numero valido ------\n");
             continue;
         }
+
+        if (numero <= 0 || numero >= 10)
+        {
+            Console.WriteLine("----- Error : Ingrese un valor valido entre 1-9 -----\n");
+            continue;
+        }
+
+
 
         ConsegirPosicion(numero, out int fila, out int columna);
 
@@ -59,8 +58,7 @@ while (empezar)
             Console.WriteLine("Presione 1 para volver a jugar \n");
             string? continuar = Console.ReadLine();
             empezar = continuar.Equals("1") ? true : false;
-            
-
+         
             break;
         }
         else if (VerificarEmpate(tablero))
@@ -91,6 +89,7 @@ while (empezar)
     {
         for (int i = 0; i < 3; i++)
         {
+            // Espcio para  centrar la tabla
             Console.Write("                 ");
             for (int j = 0; j < 3; j++)
             {
