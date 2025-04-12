@@ -12,3 +12,4 @@ C:\Users\HP\Downloads\vss-curso\C#\TIC-TAC-TOE GAME\TIC-TAC-TOE GAME\obj\Debug\n
 C:\Users\HP\Downloads\vss-curso\C#\TIC-TAC-TOE GAME\TIC-TAC-TOE GAME\obj\Debug\net9.0\TIC-TAC-TOE-GAME.pdb
 C:\Users\HP\Downloads\vss-curso\C#\TIC-TAC-TOE GAME\TIC-TAC-TOE GAME\obj\Debug\net9.0\TIC-TAC-TOE-GAME.genruntimeconfig.cache
 C:\Users\HP\Downloads\vss-curso\C#\TIC-TAC-TOE GAME\TIC-TAC-TOE GAME\obj\Debug\net9.0\ref\TIC-TAC-TOE-GAME.dll
+C:\Users\HP\Downloads\vss-curso\C#\TIC-TAC-TOE GAME\TIC-TAC-TOE GAME\obj\Debug\net9.0\TIC-TAC-TOE-GAME.sourcelink.json

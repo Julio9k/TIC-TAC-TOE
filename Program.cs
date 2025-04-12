@@ -2,7 +2,7 @@
 
 while (empezar)
 {
-    Console.WriteLine("***************  TIC-TAC-TOE GAME ***************");
+    Console.WriteLine("***************  TIC-TAC-TOE GAME ***************\n");
 
     // Crear Tabla
     char[,] tablero = new char[,]
@@ -18,8 +18,6 @@ while (empezar)
     string JugadorN = "Jugador1";
     char jugadorActual;
 
-    
-
     while (true)
     {
         jugadorActual = JugadorN.Equals("Jugador1") ? 'X' : 'O';
@@ -29,58 +27,58 @@ while (empezar)
 
         if (int.TryParse(valor, out int numero))
         {
-                    if (numero <= 0 || numero >= 10)
-                    {
-                        Console.WriteLine("----- Error : Ingrese un valor valido entre 1-9-----");
-                        Console.WriteLine();
-                    }
-                    else
-                    {
-                     ConsegirPosicion(numero,out int fila   ,out int columna);
-                        if (tablero[fila,columna]!='X' && tablero[fila,columna]!='O')
-                        {
-                        tablero[fila, columna] = jugadorActual;
+            if (numero <= 0 || numero >= 10)
+            {
+                Console.WriteLine("----- Error : Ingrese un valor valido entre 1-9 -----\n");
+                continue;
+            }
 
-                    if (VerificarGanador(tablero))
-                    {
-                        Console.WriteLine($"******** {JugadorN}  gana!********* ");
-                        Console.WriteLine("Presione 1 para volver a jugar");
-                        var continuar = Console.ReadLine();
-                        empezar = continuar.Equals("1") ? true : false;
-                        
-                        break;
-                    }
-                    else if (VerificarEmpate(tablero))
-                    {
-                        Console.WriteLine("************* Empate! *************");
-                        Console.WriteLine("Presione 1 para volver a jugar");
-                        var continuar = Console.ReadLine();
-                        empezar = continuar.Equals("1") ? true : false;
-                        break;
-                    }
-
-                    imprimirTablero(tablero);
-
-                    
-
-
-                        JugadorN = JugadorN.Equals("Jugador1") ? "Jugador2" : "Jugador1";
-
-                } else
-                        {
-                            Console.WriteLine("Casilla ocupada");
-                        }
-
-                    }
         }
         else
         {
-            Console.WriteLine("----- Error :Ingrese un numero valido ------");
-            Console.WriteLine();
+            Console.WriteLine("----- Error :Ingrese un numero valido ------\n");
+            continue;
         }
 
+        ConsegirPosicion(numero, out int fila, out int columna);
+
+        if (tablero[fila, columna] == 'X' || tablero[fila, columna] == 'O')
+        {
+            Console.WriteLine("-------- Casilla ocupada ---------\n");
+            continue;
+
+        }
+
+        tablero[fila, columna] = jugadorActual;
+
+        if (VerificarGanador(tablero))
+        {
+            imprimirTablero(tablero);
+            Console.WriteLine($"        ******** {JugadorN}  gana!********* ");
+            
+            Console.WriteLine("Presione 1 para volver a jugar \n");
+            string? continuar = Console.ReadLine();
+            empezar = continuar.Equals("1") ? true : false;
+            
+
+            break;
+        }
+        else if (VerificarEmpate(tablero))
+        {
+            imprimirTablero(tablero);
+            Console.WriteLine("     ************* Empate! *************\n");
+            
+            Console.WriteLine("Presione 1 para volver a jugar");
+            string? continuar = Console.ReadLine();
+            empezar = continuar.Equals("1") ? true : false;
+            break;
+        }
+
+        imprimirTablero(tablero);
+        JugadorN = JugadorN.Equals("Jugador1") ? "Jugador2" : "Jugador1";
 
     }
+
 
 
     void ConsegirPosicion(int posicion,out int fila, out int columna)
@@ -103,13 +101,13 @@ while (empezar)
             if (i < 2)
             {
                 Console.Write("                 ");
-                Console.Write("-------------");
-                Console.WriteLine();
+                Console.Write("-------------\n");
+                
             }
         }
         Console.WriteLine();
-        Console.WriteLine("     Jugador1 : X       |       Jugador2 : O ");
-        Console.WriteLine();
+        Console.WriteLine("     Jugador1 : X       |       Jugador2 : O \n");
+     
     }
 
     bool VerificarEmpate(char[,] tablero)
